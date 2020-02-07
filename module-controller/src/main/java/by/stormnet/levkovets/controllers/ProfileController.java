@@ -4,12 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-
-@WebServlet("/authorized/profile")
 @Controller
-public class ProfileController extends HttpServlet {
+public class ProfileController {
 
     private static final String MESSAGE = "<strong style=\"color: red\">Поле не может быть пустым</strong>";
     private static final String EMAIL_MESSAGE = "<strong style=\"color: red\">Такой Email уже существует</strong>";

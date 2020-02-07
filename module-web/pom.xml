@@ -14,6 +14,13 @@
     <packaging>war</packaging>
 
     <dependencies>
+
+        <dependency>
+            <groupId>by.stormnet.levkovets</groupId>
+            <artifactId>module-controller</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>

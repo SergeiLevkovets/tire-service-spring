@@ -4,11 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServlet;
-
 
 @Controller
-public class RegistrationController extends HttpServlet {
+public class RegistrationController {
 
     private static final String MESSAGE = "<strong style=\"color: red\">Введены неверные данные</strong>";
     private static final String EMAIL_MESSAGE = "<strong style=\"color: red\">Такой Email уже существует</strong>";
