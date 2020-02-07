@@ -6,11 +6,11 @@
 Приложение для создания и храниния заказов на выполненые работы
 
 Используются:
-* Сервлеты
 * Jsp
-* MVC Pattern
-* Класический JDBC 
-* Сервер TomCat
+* SpringMVC
+* SpringData
+* Hibernate
+* TomCat
 * MySQL
 * Maven
 
