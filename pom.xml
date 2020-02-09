@@ -16,6 +16,8 @@
     <modules>
         <module>module-web</module>
         <module>module-controller</module>
+        <module>module-domain</module>
+        <module>module-dao</module>
     </modules>
 
     <build>

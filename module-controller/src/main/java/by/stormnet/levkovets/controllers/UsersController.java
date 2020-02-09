@@ -11,27 +11,21 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class RegistrationController {
-
-    private static final String MESSAGE = "<strong style=\"color: red\">Введены неверные данные</strong>";
-    private static final String EMAIL_MESSAGE = "<strong style=\"color: red\">Такой Email уже существует</strong>";
-    private static final String PHONE_MESSAGE = "<strong style=\"color: red\">Такой номер уже существует</strong>";
+public class UsersController {
 
     @Autowired
     private UserDAO userDAO;
 
-    @RequestMapping("/registration")
+    @RequestMapping("/users")
     public ModelAndView showRegistrationPage() {
-        ModelAndView modelAndView = new ModelAndView("registration");
+        ModelAndView modelAndView = new ModelAndView("users");
         return modelAndView;
     }
 
-    @PostMapping("/registration")
-    public ModelAndView saveUser(User user) {
-        userDAO.save(user);
-
-        ModelAndView modelAndView = new ModelAndView("redirect:users");
-        return modelAndView;
+    @ModelAttribute(name = "usersList")
+    private Iterable<User> getUserList() {
+        Iterable<User> userList = userDAO.findAll();
+        return userList;
     }
 
     @ModelAttribute(name = "user")
