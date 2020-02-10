@@ -15,6 +15,12 @@ CREATE TABLE `tire_service_db`.`users`
 #     `role`     VARCHAR(255) NOT NULL DEFAULT 'user'
 );
 
+CREATE TABLE `tire_service_db`.`roles`
+(
+    `fk_user_id`    INTEGER      NOT NULL,
+    `role`          VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE `tire_service_db`.`widths`
 (
     `id`    INTEGER      NOT NULL PRIMARY KEY AUTO_INCREMENT,

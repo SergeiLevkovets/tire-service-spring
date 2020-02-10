@@ -38,6 +38,7 @@ public class DaoConfiguration  {
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setDatabasePlatform("MYSQL");
+        adapter.setGenerateDdl(true);
         adapter.setShowSql(true);
         adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
 

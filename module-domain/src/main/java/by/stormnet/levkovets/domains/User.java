@@ -3,9 +3,9 @@ package by.stormnet.levkovets.domains;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -31,10 +31,10 @@ public class User {
     @Column(unique = true, name = "phone")
     private String phone;
 
-
-   /* @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "role", joinColumns = @JoinColumn(name = "user_id"))
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "roles", joinColumns = @JoinColumn(name = "fk_user_id"))
     @Enumerated(EnumType.STRING)
-    private List<Role> role;*/
+    @Column(name = "role")
+    private List<Role> role;
 
 }

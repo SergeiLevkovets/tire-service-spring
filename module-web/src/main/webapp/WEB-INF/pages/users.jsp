@@ -1,4 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
+
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page isELIgnored="false" %>
 <%@include file="/WEB-INF/pages/head.jsp" %>
@@ -32,19 +35,19 @@
                                 <tbody>
                                 <c:forEach items="${usersList}" var="user">
                                     <tr>
-                                        <td> <c:out value="${user.id}" /> </td>
-                                        <td> <c:out value="${user.name}" /> </td>
-                                        <td> <c:out value="${user.email}" /> </td>
-                                        <td> <c:out value="${user.password}" /> </td>
-                                        <td> <c:out value="${user.phone}" /> </td>
-<%--                                        <td>${user.role}</td>--%>
+                                        <td><c:out value="${user.id}"/></td>
+                                        <td><c:out value="${user.name}"/></td>
+                                        <td><c:out value="${user.email}"/></td>
+                                        <td><c:out value="${user.password}"/></td>
+                                        <td><c:out value="${user.phone}"/></td>
+                                        <td><c:out value="${user.role}"/></td>
                                         <td>
-                                            <c:url value="update-users" var="update">
+                                            <c:url value="update-user" var="update">
                                                 <c:param name="user_id" value="${user.id}"/>
                                             </c:url>
                                             <a href="${update}" class="btn btn-info" id="update"><i
                                                     class="glyphicon glyphicon-refresh"></i> Update</a>
-                                            <c:url value="delete-users" var="delete">
+                                            <c:url value="delete-user" var="delete">
                                                 <c:param name="user_id" value="${user.id}"/>
                                             </c:url>
                                             <a href="${delete}" class="btn btn-danger" id="delete"><i
@@ -55,60 +58,35 @@
                                 </tbody>
                             </table>
                         </div>
-                        <form class="form-horizontal panel-body" id="usersForm"
-                              action="${pageContext.request.contextPath}/authorized/admin/users"
-                              method="post">
+
+                        <spring:form class="form-horizontal panel-body" action="save-user" method="post" modelAttribute="user">
                             <div class="form-group row">
-                                <div class="col-md-1" ${userForUpdate.id == null ? (param.userId == null ? 'hidden' : '') : ''}>
-                                    <label>ID</label>
-                                    <input type="text" class="form-control" name="userId" id="userId" readonly
-                                           value="${param.userId == null ? userForUpdate.id : param.userId}">
-                                </div>
+                                <spring:hidden path="id"/>
                                 <div class="col-md-3">
                                     <label>Имя</label>
-                                    ${errorMap["nameError"]}
-                                    <input type="text" class="form-control" name="name" id="name"
-                                           value="${param.name == null ? userForUpdate.name : param.name}">
+                                    <spring:input path="name" class="form-control" id="name"/>
                                 </div>
-
                                 <div class="col-md-2">
                                     <label>Почта</label>
-                                    ${errorMap['emailError']}
-                                    <input type="text" class="form-control" name="email" id="email"
-                                           value="${param.email == null ? userForUpdate.email : param.email}">
+                                    <spring:input path="email" class="form-control" id="email"/>
                                 </div>
                                 <div class="col-md-2">
-                                    ${errorMap["passwordError"]}
                                     <label>Пароль</label>
-                                    <input type="text" class="form-control" name="password" id="password"
-                                           value="${param.password == null ? userForUpdate.password : param.password}">
+                                    <spring:input path="password" class="form-control" id="password"/>
                                 </div>
                                 <div class="col-md-2">
-                                    ${errorMap["phoneError"]}
                                     <label>Номер телефона</label>
-                                    <input type="text" class="form-control" name="phone" id="phone"
-                                           value="${param.phone == null ? userForUpdate.phone : param.phone}">
+                                    <spring:input path="phone" class="form-control" id="phone"/>
                                 </div>
                                 <div class="col-md-2">
-                                    ${errorMap["roleError"]}
                                     <label>Роль</label>
-                                    <select class="form-control" id="role" name="role">
-                                        <option hidden></option>
-                                        <option ${param.role == 'user' ? 'selected' : userForUpdate.role == 'user' ? 'selected' : ''}
-                                                value="user">user</option>
-                                        <option ${param.role == 'admin' ? 'selected' : userForUpdate.role == 'admin' ? 'selected' : ''}
-                                                value="admin">admin</option>
-                                    </select>
+                                    <spring:select path="role" class="form-control" items="${role}" />
                                 </div>
                             </div>
                             <div class="form-inline">
-                                <button type="button" class="btn btn-success" name="saveUser"
-                                        id="saveUser">Save
-                                </button>
+                                <input type="submit" class="btn btn-primary signup" value="Save">
                             </div>
-                        </form>
-                        <div class="row">
-                        </div>
+                        </spring:form>
                     </div>
                 </div>
             </div>
