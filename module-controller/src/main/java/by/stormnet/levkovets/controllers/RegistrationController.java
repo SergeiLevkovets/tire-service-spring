@@ -28,6 +28,8 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public ModelAndView saveUser(User user) {
+        System.out.println(user);
+
         userDAO.save(user);
 
         ModelAndView modelAndView = new ModelAndView("redirect:users");

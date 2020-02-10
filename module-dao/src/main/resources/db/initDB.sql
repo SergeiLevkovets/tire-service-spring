@@ -11,8 +11,8 @@ CREATE TABLE `tire_service_db`.`users`
     `name`     VARCHAR(255) NOT NULL,
     `email`    VARCHAR(255) NOT NULL,
     `password` VARCHAR(255) NOT NULL,
-    `phone`    VARCHAR(255) NOT NULL,
-    `role`     VARCHAR(255) NOT NULL DEFAULT 'user'
+    `phone`    VARCHAR(255) NOT NULL
+#     `role`     VARCHAR(255) NOT NULL DEFAULT 'user'
 );
 
 CREATE TABLE `tire_service_db`.`widths`

@@ -32,20 +32,20 @@
                                 <tbody>
                                 <c:forEach items="${usersList}" var="user">
                                     <tr>
-                                        <td>${user.id}</td>
-                                        <td>${user.name}</td>
-                                        <td>${user.email}</td>
-                                        <td>${user.password}</td>
-                                        <td>${user.phone}</td>
-                                        <td>${user.role}</td>
+                                        <td> <c:out value="${user.id}" /> </td>
+                                        <td> <c:out value="${user.name}" /> </td>
+                                        <td> <c:out value="${user.email}" /> </td>
+                                        <td> <c:out value="${user.password}" /> </td>
+                                        <td> <c:out value="${user.phone}" /> </td>
+<%--                                        <td>${user.role}</td>--%>
                                         <td>
-                                            <c:url value="/authorized/admin/users" var="update">
-                                                <c:param name="userUpdate" value="${user.id}"/>
+                                            <c:url value="update-users" var="update">
+                                                <c:param name="user_id" value="${user.id}"/>
                                             </c:url>
                                             <a href="${update}" class="btn btn-info" id="update"><i
                                                     class="glyphicon glyphicon-refresh"></i> Update</a>
-                                            <c:url value="/authorized/admin/users" var="delete">
-                                                <c:param name="userDelete" value="${user.id}"/>
+                                            <c:url value="delete-users" var="delete">
+                                                <c:param name="user_id" value="${user.id}"/>
                                             </c:url>
                                             <a href="${delete}" class="btn btn-danger" id="delete"><i
                                                     class="glyphicon glyphicon-remove"></i> Delete</a>
