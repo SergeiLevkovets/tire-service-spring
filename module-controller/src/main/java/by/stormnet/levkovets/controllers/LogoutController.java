@@ -13,15 +13,4 @@ public class LogoutController {
         return modelAndView;
     }
 
-   /* @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession httpSession = req.getSession();
-        Integer authorizedUserId = (Integer) httpSession.getAttribute("authorizedUserId");
-        if (authorizedUserId != null) {
-            httpSession.removeAttribute("authorizedUserId");
-            httpSession.removeAttribute("authorizedUserName");
-            httpSession.removeAttribute("authorizedUserRole");
-        }
-        req.getRequestDispatcher("/WEB-INF/pages/index.jsp").forward(req, resp);
-    }*/
 }

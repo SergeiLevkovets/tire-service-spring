@@ -12,10 +12,10 @@ CREATE TABLE `tire_service_db`.`users`
     `email`    VARCHAR(255) NOT NULL,
     `password` VARCHAR(255) NOT NULL,
     `phone`    VARCHAR(255) NOT NULL
-#     `role`     VARCHAR(255) NOT NULL DEFAULT 'user'
 );
 
-CREATE TABLE `tire_service_db`.`roles`
+
+CREATE TABLE `tire_service_db`.`users_to_roles`
 (
     `fk_user_id`    INTEGER      NOT NULL,
     `role`          VARCHAR(255) NOT NULL

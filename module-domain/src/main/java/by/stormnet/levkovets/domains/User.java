@@ -32,7 +32,7 @@ public class User {
     private String phone;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "roles", joinColumns = @JoinColumn(name = "fk_user_id"))
+    @CollectionTable(name = "users_to_roles", joinColumns = @JoinColumn(name = "fk_user_id"))
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private List<Role> role;

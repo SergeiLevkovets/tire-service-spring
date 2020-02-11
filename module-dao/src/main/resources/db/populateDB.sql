@@ -1,5 +1,5 @@
 
-INSERT INTO tire_service_db.users (name, email, password, phone, role) value ('root', 'root@email.com', 'root', '8 029 111 11 11', 'admin');
+INSERT INTO tire_service_db.users (name, email, password, phone) value ('root', 'root@email.com', 'root', '8 029 111 11 11');
 
 #####################
 
