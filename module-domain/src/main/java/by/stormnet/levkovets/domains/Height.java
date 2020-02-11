@@ -6,17 +6,16 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+/**
+ * Simple javaBean domain object representing the height of a tire
+ * */
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "heights")
-public class Height {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+public class Height extends BaseEntity{
 
     @Column(name = "height")
     private String height;

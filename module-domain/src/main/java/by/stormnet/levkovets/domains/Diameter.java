@@ -6,17 +6,16 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+/**
+ * Simple javaBean domain object that represent the fit diameter of a tire
+ * */
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "diameters")
-public class Diameter {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+public class Diameter extends BaseEntity{
 
     @Column(name = "diameter")
     private String diameter;

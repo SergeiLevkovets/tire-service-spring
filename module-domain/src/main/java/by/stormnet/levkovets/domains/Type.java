@@ -6,17 +6,16 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+/**
+ * Simple javaBean domain object representing a type of service
+ * */
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "types")
-public class Type {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+public class Type extends BaseEntity {
 
     @Column(name = "type")
     private String type;

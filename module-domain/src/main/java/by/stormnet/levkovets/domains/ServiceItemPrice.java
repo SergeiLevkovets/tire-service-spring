@@ -6,17 +6,16 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+/**
+ * Simple javaBean domain object representing the cost of services
+ * */
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "service_item_prices")
-public class ServiceItemPrice {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "id")
-    private Integer id;
+public class ServiceItemPrice extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name="fk_service_item_id")

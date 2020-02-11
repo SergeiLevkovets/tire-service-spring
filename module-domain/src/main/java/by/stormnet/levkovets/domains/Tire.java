@@ -7,16 +7,15 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * Simple javaBean domain object representing a tire
+ * */
+
 @Entity
 @Data
 @NoArgsConstructor
 @Table(name = "tires")
-public class Tire {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+public class Tire extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "fk_width_id")

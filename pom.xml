@@ -18,6 +18,8 @@
         <module>module-controller</module>
         <module>module-domain</module>
         <module>module-dao</module>
+        <module>module-service</module>
+        <module>module-dto</module>
     </modules>
 
     <build>
