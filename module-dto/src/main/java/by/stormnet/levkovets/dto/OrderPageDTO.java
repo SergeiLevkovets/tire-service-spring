@@ -14,12 +14,12 @@ import java.util.List;
 public class OrderPageDTO extends BaseDto {
 
     @NonNull
-    private TireDTO tire;
+    private String tire;
 
     @NonNull
-    private TypeDTO type;
+    private String type;
 
-    private Date date;
+    private String date;
 
     private List<ServiceItemPriceDTO> serviceItemPriceList;
 

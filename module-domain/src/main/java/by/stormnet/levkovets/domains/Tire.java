@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -18,19 +19,18 @@ import java.util.Date;
 public class Tire extends BaseEntity{
 
     @ManyToOne
-    @JoinColumn(name = "fk_width_id")
+    @JoinColumn(name = "width_id")
     private Width width;
 
     @ManyToOne
-    @JoinColumn(name = "fk_height_id")
+    @JoinColumn(name = "height_id")
     private Height height;
 
     @ManyToOne
-    @JoinColumn(name = "fk_diameter_id")
+    @JoinColumn(name = "diameter_id")
     private Diameter diameter;
 
     @Column(name = "date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
+    private LocalDateTime date;
 
 }

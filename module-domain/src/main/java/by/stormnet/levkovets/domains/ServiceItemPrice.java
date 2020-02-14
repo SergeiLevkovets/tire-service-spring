@@ -18,18 +18,17 @@ import javax.persistence.*;
 public class ServiceItemPrice extends BaseEntity {
 
     @ManyToOne
-    @JoinColumn(name="fk_service_item_id")
+    @JoinColumn(name="service_item_id")
     private ServiceItem serviceItem;
 
     @ManyToOne
-    @JoinColumn(name="fk_type_id")
+    @JoinColumn(name="type_id")
     private Type type;
 
     @ManyToOne
-    @JoinColumn(name="fk_diameter_id")
+    @JoinColumn(name="diameter_id")
     private Diameter diameter;
 
-    @Column(name = "price")
     private Double price;
 
 }

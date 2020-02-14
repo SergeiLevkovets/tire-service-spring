@@ -6,11 +6,22 @@
 
     <groupId>by.stormnet.levkovets</groupId>
     <artifactId>tire-service-spring</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${tire-service-spring.version}</version>
     <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <tire-service-spring.version>1.0-SNAPSHOT</tire-service-spring.version>
+        <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
+        <org.projectlombok.version>1.18.12</org.projectlombok.version>
+        <org.springframework.version>5.2.3.RELEASE</org.springframework.version>
+        <org.springframework.data.version>2.2.4.RELEASE</org.springframework.data.version>
+        <org.hibernate.version>5.4.10.Final</org.hibernate.version>
+        <mysql-connector.version>8.0.19</mysql-connector.version>
+        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+        <javax.servlet.jsp-api.version>2.2</javax.servlet.jsp-api.version>
+        <javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
+        <org.flywaydb.version>6.2.2</org.flywaydb.version>
     </properties>
 
     <modules>
@@ -30,6 +41,24 @@
                 <version>3.8.0</version>
                 <configuration>
                     <release>11</release>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${org.projectlombok.version}</version>
+                        </path>
+                        <!-- other annotation processors -->
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        <compilerArg>
+                            -Amapstruct.defaultComponentModel=spring
+                        </compilerArg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
         </plugins>

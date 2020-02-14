@@ -3,9 +3,12 @@ package by.stormnet.levkovets.domains;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Simple javaBean domain object representing Order
@@ -19,20 +22,29 @@ import java.util.Date;
 public class Order extends BaseEntity{
 
     @ManyToOne
-    @JoinColumn(name="fk_user_id")
-    private User user;
+    @JoinColumn(name="user_id")
+    private User users;
 
     @ManyToOne
-    @JoinColumn(name="fk_tire_id")
+    @JoinColumn(name="tire_id")
     private Tire tire;
 
     @ManyToOne
-    @JoinColumn(name="fk_type_id")
+    @JoinColumn(name="type_id")
     private Type type;
 
-    @Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
+    @Column(name = "date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime date;
+
+    @Column(name = "total_price")
+    private Double totalPrice;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "orders_to_service_item_prices", joinColumns = @JoinColumn(name = "order_id") )
+    @Column(name="count")
+    @MapKeyJoinColumn(name = "service_item_price_id")
+    private Map<ServiceItemPrice, Integer> ServiceItemPrices;
+
 
 
 

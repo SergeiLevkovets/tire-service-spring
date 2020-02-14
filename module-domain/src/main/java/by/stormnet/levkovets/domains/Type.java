@@ -17,7 +17,6 @@ import javax.persistence.*;
 @Table(name = "types")
 public class Type extends BaseEntity {
 
-    @Column(name = "type")
     private String type;
 
 }

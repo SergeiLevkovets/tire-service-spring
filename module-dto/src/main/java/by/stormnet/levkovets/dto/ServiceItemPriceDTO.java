@@ -13,12 +13,12 @@ public class ServiceItemPriceDTO extends BaseDto {
     private Integer id;
 
     @NonNull
-    private ServiceItemDTO serviceItem;
+    private String serviceItemName;
 
     @NonNull
-    private TypeDTO type;
+    private String type;
 
-    private DiameterDTO diameter;
+    private String diameter;
 
     @NonNull
     private Double price;

@@ -14,14 +14,14 @@ public class TireDTO extends BaseDto {
     private Integer id;
 
     @NonNull
-    private WidthDTO width;
+    private String width;
 
     @NonNull
-    private HeightDTO height;
+    private String height;
 
     @NonNull
-    private DiameterDTO diameter;
+    private String diameter;
 
-    private Date date;
+    private String date;
 
 }

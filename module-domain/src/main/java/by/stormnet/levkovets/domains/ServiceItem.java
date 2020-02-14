@@ -17,10 +17,8 @@ import javax.persistence.*;
 @Table(name = "service_items")
 public class ServiceItem extends BaseEntity {
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "article")
     private String article;
 
 }

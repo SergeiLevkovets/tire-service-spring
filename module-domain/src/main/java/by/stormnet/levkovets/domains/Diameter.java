@@ -17,7 +17,6 @@ import javax.persistence.*;
 @Table(name = "diameters")
 public class Diameter extends BaseEntity{
 
-    @Column(name = "diameter")
     private String diameter;
 
    }

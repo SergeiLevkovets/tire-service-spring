@@ -15,14 +15,14 @@ public class OrderDTO extends BaseDto {
     private Integer id;
 
     @NonNull
-    private UserDTO user;
+    private String userName;
 
     @NonNull
     private TireDTO tire;
 
     @NonNull
-    private TypeDTO type;
+    private String type;
 
-    private Date date;
+    private String date;
 
 }

@@ -25,7 +25,7 @@ public class DaoConfiguration  {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/tire_service_db");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
@@ -37,9 +37,9 @@ public class DaoConfiguration  {
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setDatabasePlatform("MYSQL");
-        adapter.setGenerateDdl(true);
+        adapter.setGenerateDdl(false);
         adapter.setShowSql(true);
-        adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
+        adapter.setDatabasePlatform("org.hibernate.dialect.MySQL8Dialect");
 
         return adapter;
     }
@@ -73,6 +73,7 @@ public class DaoConfiguration  {
         Properties properties = new Properties();
 
         properties.setProperty("hibernate.format_sql", "true");
+//        properties.setProperty("hibernate.hbm2ddl.auto", "validate");
 
         return properties;
     }

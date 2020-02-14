@@ -17,7 +17,6 @@ import javax.persistence.*;
 @Table(name = "widths")
 public class Width extends BaseEntity{
 
-    @Column(name = "width")
     private String width;
 
 }

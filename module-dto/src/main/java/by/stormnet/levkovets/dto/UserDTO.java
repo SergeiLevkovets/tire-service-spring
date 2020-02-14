@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,11 +24,8 @@ public class UserDTO extends BaseDto {
     private String password;
 
     @NonNull
-    private String confirmPassword;
-
-    @NonNull
     private String phone;
 
-    private String role;
+    private List<String> role;
 
 }

@@ -17,7 +17,6 @@ import javax.persistence.*;
 @Table(name = "heights")
 public class Height extends BaseEntity{
 
-    @Column(name = "height")
     private String height;
 
 }
