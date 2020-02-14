@@ -20,14 +20,15 @@
         </dependency>
         <dependency>
             <groupId>by.stormnet.levkovets</groupId>
-            <artifactId>module-dao</artifactId>
+            <artifactId>module-service</artifactId>
             <version>${tire-service-spring.version}</version>
         </dependency>
         <dependency>
             <groupId>by.stormnet.levkovets</groupId>
-            <artifactId>module-domain</artifactId>
+            <artifactId>module-dto</artifactId>
             <version>${tire-service-spring.version}</version>
         </dependency>
+
         
     </dependencies>
 

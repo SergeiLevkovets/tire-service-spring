@@ -1,7 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page isELIgnored="false" %>
 
-<%@include file="/WEB-INF/pages/head.jsp" %>
+<%@include file="/WEB-INF/pages/parts/head.jsp" %>
 <body class="login-bg">
 <div class="header">
     <div class="container">
@@ -9,7 +10,8 @@
             <div class="col-md-12">
                 <!-- Logo -->
                 <div class="logo">
-                    <h1><a href="${pageContext.request.contextPath}/index.html">Tire Service</a></h1>
+                    <c:url value="index" var="index_url"></c:url>
+                    <h1><a href="${index_url}">Tire Service</a></h1>
                 </div>
             </div>
         </div>
@@ -23,26 +25,25 @@
                 <form class="box" id="login_form" action="${pageContext.request.contextPath}/login" method="post">
                     <div class="content-wrap">
                         <h6>Sign In</h6>
-                        ${email_error}
                         <input class="form-control" type="email" id="email" name="email"
-                               value="${param.email}" placeholder="E-mail address" required>
+                                placeholder="E-mail address">
                         <h5>or</h5>
-                        ${phone_error}
                         <input class="form-control" type="text" id="phone" name="phone"
-                               value="${param.phone}" placeholder="Phone number" required>
+                                placeholder="Phone number">
 
-                        ${password_error}
                         <input class="form-control" type="password" id="password" name="password"
-                               value="${param.password}" placeholder="Password" required>
+                                placeholder="Password" required>
                         <div class="action">
-                            <input type="button" class="btn btn-primary signup" id="submit_login" value="Login">
+                            <input type="submit" class="btn btn-primary signup" id="submit_login" value="Login">
                         </div>
                     </div>
                 </form>
 
                 <div class="already">
                     <p>Don't have an account?</p>
-                    <a href="${pageContext.request.contextPath}/registration">Create an account</a>
+                    <c:url value="registration" var="registration_url"></c:url>
+
+                    <a href="${registration_url}">Create an account</a>
                 </div>
             </div>
         </div>
@@ -50,6 +51,6 @@
 </div>
 
 
-<%@include file="/WEB-INF/pages/script-import.jsp" %>
+<%@include file="/WEB-INF/pages/parts/script-import.jsp" %>
 </body>
 </html>

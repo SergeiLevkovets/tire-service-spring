@@ -1,5 +1,6 @@
 package by.stormnet.levkovets.config;
 
+import org.flywaydb.core.Flyway;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
@@ -46,6 +47,9 @@ public class DaoConfiguration  {
 
     @Bean
     public AbstractEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
+
+        flywayMigration(dataSource);
+
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
 
         entityManagerFactory.setPackagesToScan("by.stormnet.levkovets.domains");
@@ -69,11 +73,15 @@ public class DaoConfiguration  {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
+    private void flywayMigration(DataSource dataSource){
+        Flyway.configure().dataSource(dataSource).load().migrate();
+    }
+
     private Properties additionalJpaProperties() {
         Properties properties = new Properties();
 
         properties.setProperty("hibernate.format_sql", "true");
-//        properties.setProperty("hibernate.hbm2ddl.auto", "validate");
+        properties.setProperty("hibernate.hbm2ddl.auto", "validate");
 
         return properties;
     }

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 @Import(DaoConfiguration.class)
 
 @Configuration
-@ComponentScan("by.stormnet.levkovets.service.impl")
+@ComponentScan({"by.stormnet.levkovets.service.impl", "by.stormnet.levkovets.mappers"})
 public class ServiceConfiguration {
 
 }

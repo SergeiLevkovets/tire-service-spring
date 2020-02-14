@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,8 +88,9 @@
         <h1>404</h1>
         <h4>Page Not Found</h4>
         <p>It's looking like you may have taken a wrong turn. Don't worry... it happens to the best of us. Here's a little tip that might help you get back on track.</p>
-        <a href="${pageContext.request.contextPath}/index.html">Return to Home</a>
-<%@include file="/WEB-INF/pages/script-import.jsp" %>
+        <c:url value="index" var="index_url"></c:url>
+        <a href="${index_url}">Return to Home</a>
+<%@include file="/WEB-INF/pages/parts/script-import.jsp" %>
 </body>
 </html>
 

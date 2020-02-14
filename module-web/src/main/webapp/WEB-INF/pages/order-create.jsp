@@ -2,13 +2,13 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page isELIgnored="false" %>
-<%@include file="/WEB-INF/pages/head.jsp" %>
+<%@include file="/WEB-INF/pages/parts/head.jsp" %>
 <body>
-<%@include file="/WEB-INF/pages/header.jsp" %>
+<%@include file="/WEB-INF/pages/parts/header.jsp" %>
 <div class="page-content">
     <div class="row">
         <div class="col-md-2">
-            <%@include file="/WEB-INF/pages/sidebar.jsp" %>
+            <%@include file="/WEB-INF/pages/parts/sidebar.jsp" %>
         </div>
         <div class="col-md-10">
             <!-- content -->
@@ -21,13 +21,13 @@
                       method="post">
 
                     <fieldset>
-                        <c:url value="/authorized/order-create" var="car_url">
+                        <c:url value="order-create" var="car_url">
                             <c:param name="type" value="car"/>
                         </c:url>
-                        <c:url value="/authorized/order-create" var="bus_url">
+                        <c:url value="order-create" var="bus_url">
                             <c:param name="type" value="bus"/>
                         </c:url>
-                        <c:url value="/authorized/order-create" var="truck_url">
+                        <c:url value="order-create" var="truck_url">
                             <c:param name="type" value="truck"/>
                         </c:url>
                         <div class="form-group">
@@ -96,7 +96,7 @@
                                             required>
                                         <option hidden></option>
                                         <c:forEach items="${widthList}" var="width">
-                                            <option ${param.width == width.width ? 'selected' : ''}>${width.width}</option>
+                                            <option ${param.width == width.width ? 'selected' : ''}><c:out value="${width.width}"/></option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -375,8 +375,8 @@
     </div>
 </div>
 
-<%@include file="/WEB-INF/pages/footer.jsp" %>
-<%@include file="/WEB-INF/pages/script-import.jsp" %>
+<%@include file="/WEB-INF/pages/parts/footer.jsp" %>
+<%@include file="/WEB-INF/pages/parts/script-import.jsp" %>
 
 </body>
 </html>

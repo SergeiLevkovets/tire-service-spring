@@ -26,7 +26,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-align-justify"></i> Main menu<b class="caret"></b></a>
                                 <ul class="dropdown-menu animated fadeInUp">
-                                    <%@include file="/WEB-INF/pages/nav-menu.jsp" %>
+                                    <%@include file="/WEB-INF/pages/parts/nav-menu.jsp" %>
                                 </ul>
                             </li>
                         </ul>

@@ -2,6 +2,7 @@ package by.stormnet.levkovets.dto;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,5 +25,11 @@ public class OrderDTO extends BaseDto {
     private String type;
 
     private String date;
+
+    @NonNull
+    private Double totalPrice;
+
+    @NonNull
+    private Map<ServiceItemPriceDTO, Integer> ServiceItemPrices;
 
 }

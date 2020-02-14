@@ -37,15 +37,4 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>${org.flywaydb.version}</version>
-            </plugin>
-        </plugins>
-    </build>
-
-
 </project>

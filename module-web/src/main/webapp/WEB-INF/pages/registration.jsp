@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page isELIgnored="false" %>
-<%@include file="/WEB-INF/pages/head.jsp" %>
+<%@include file="/WEB-INF/pages/parts/head.jsp" %>
 <body class="login-bg">
 <div class="header">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <!-- Logo -->
                 <div class="logo">
-                    <h1><a href="${pageContext.request.contextPath}/index.html">Tire Service</a></h1>
+                    <c:url value="index" var="index_url"></c:url>
+                    <h1><a href="${index_url}">Tire Service</a></h1>
                 </div>
             </div>
         </div>
@@ -38,13 +39,14 @@
 
                 <div class="already">
                     <p>Have an account already?</p>
-                    <a href="${pageContext.request.contextPath}/login">Login</a>
+                    <c:url value="login" var="login_url"></c:url>
+                    <a href="${login_url}">Login</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<%@include file="/WEB-INF/pages/script-import.jsp" %>
+<%@include file="/WEB-INF/pages/parts/script-import.jsp" %>
 </body>
 </html>

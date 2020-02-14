@@ -2,6 +2,6 @@
 <%@ page isELIgnored="false" %>
 <div class="sidebar content-box" style="display: block;">
     <ul class="nav">
-        <%@include file="/WEB-INF/pages/nav-menu.jsp" %>
+        <%@include file="/WEB-INF/pages/parts/nav-menu.jsp" %>
     </ul>
 </div>

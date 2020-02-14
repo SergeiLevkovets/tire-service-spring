@@ -13,4 +13,9 @@ public class LoginController {
         return modelAndView;
     }
 
+    @RequestMapping("/logout")
+    public ModelAndView logOut(){
+        ModelAndView modelAndView = new ModelAndView("redirect:index");
+        return modelAndView;
+    }
 }

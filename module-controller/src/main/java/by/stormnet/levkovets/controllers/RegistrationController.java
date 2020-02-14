@@ -1,22 +1,26 @@
 package by.stormnet.levkovets.controllers;
 
-import by.stormnet.levkovets.dao.UserDAO;
-import by.stormnet.levkovets.domains.Role;
-import by.stormnet.levkovets.domains.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import by.stormnet.levkovets.dto.UserDTO;
+import by.stormnet.levkovets.service.RoleService;
+import by.stormnet.levkovets.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Collections;
+import java.util.List;
 
 @Controller
 public class RegistrationController {
 
-    @Autowired
-    private UserDAO userDAO;
+    private final UserService userService;
+    private final RoleService roleService;
+
+    public RegistrationController(UserService userService, RoleService roleService) {
+        this.userService = userService;
+        this.roleService = roleService;
+    }
 
     @RequestMapping("/registration")
     public ModelAndView showRegistrationPage() {
@@ -25,18 +29,21 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public ModelAndView saveUser(User user) {
+    public ModelAndView saveUser(UserDTO user) {
 
-        user.setRole(Collections.singletonList(Role.USER));
-        userDAO.save(user);
+        List<String> role = user.getRole();
+        role.add(roleService.getUserRole());
+        user.setRole(role);
+
+        userService.save(user);
 
         ModelAndView modelAndView = new ModelAndView("redirect:users");
         return modelAndView;
     }
 
     @ModelAttribute(name = "user")
-    private User getEmptyUser() {
-        return new User();
+    private UserDTO getEmptyUser() {
+        return new UserDTO();
     }
 
 }
