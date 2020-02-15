@@ -31,9 +31,7 @@ public class RegistrationController {
     @PostMapping("/registration")
     public ModelAndView saveUser(UserDTO user) {
 
-        List<String> role = user.getRole();
-        role.add(roleService.getUserRole());
-        user.setRole(role);
+        user.setRole(roleService.getUserRole());
 
         userService.save(user);
 

@@ -11,4 +11,9 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping({"/404"})
+    public String show404Page(){
+        return "404";
+    }
+
 }

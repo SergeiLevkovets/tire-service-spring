@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page isELIgnored="false" %>
 <div class="header">
@@ -15,7 +16,11 @@
             <div class="col-md-2">
                 <div class="logo">
                     <h1>
-                        <a href="${pageContext.request.contextPath}/authorized/profile"> ${sessionScope.authorizedUserName == null ? '' : '<i class="glyphicon glyphicon-user"></i>'} ${sessionScope.authorizedUserName}</a>
+                        <sec:authorize access="isAuthenticated()">
+                            <a href="${pageContext.request.contextPath}/profile">
+                                <i class="glyphicon glyphicon-user"></i> <sec:authentication property="principal.name"/>
+                            </a>
+                        </sec:authorize>
                     </h1>
                 </div>
             </div>

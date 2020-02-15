@@ -3,8 +3,8 @@ INSERT INTO users (name, email, password, phone) value ('root', 'root@email.com'
 
 insert into users_to_roles (user_id, role)
 values
-        (1, 'USER'),
-        (1, 'ADMIN');
+        (1, 'ROLE_USER'),
+        (1, 'ROLE_ADMIN');
 
 INSERT INTO diameters (diameter)
 VALUES ('r13'),

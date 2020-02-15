@@ -18,6 +18,7 @@
             <artifactId>spring-context</artifactId>
             <version>${org.springframework.version}</version>
         </dependency>
+
         <dependency>
             <groupId>by.stormnet.levkovets</groupId>
             <artifactId>module-dao</artifactId>

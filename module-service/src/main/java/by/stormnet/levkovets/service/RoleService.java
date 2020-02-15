@@ -6,6 +6,6 @@ public interface RoleService {
 
     List<String> getAllRoles();
 
-    String getUserRole();
+    List<String> getUserRole();
 
 }

@@ -24,6 +24,7 @@
         <org.flywaydb.version>6.2.2</org.flywaydb.version>
     </properties>
 
+
     <modules>
         <module>module-web</module>
         <module>module-controller</module>

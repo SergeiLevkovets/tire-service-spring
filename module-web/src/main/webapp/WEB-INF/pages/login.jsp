@@ -27,10 +27,6 @@
                         <h6>Sign In</h6>
                         <input class="form-control" type="email" id="email" name="email"
                                 placeholder="E-mail address">
-                        <h5>or</h5>
-                        <input class="form-control" type="text" id="phone" name="phone"
-                                placeholder="Phone number">
-
                         <input class="form-control" type="password" id="password" name="password"
                                 placeholder="Password" required>
                         <div class="action">

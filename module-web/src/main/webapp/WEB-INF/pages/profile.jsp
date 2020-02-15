@@ -16,27 +16,25 @@
                         <div class="panel-title">Редактирование профиля</div>
                     </div>
                     <div class="panel-body">
-                        <spring:form class="form-horizontal panel-body" id="profile_form" action="/profile-update" method="post">
+                        <spring:form class="form-horizontal panel-body" action="profile-update" method="post" modelAttribute="user">
+                            <spring:hidden path="id" />
                             <div class="form-group">
                                 <label for="profile_name">Full Name</label>
-                                <input type="text" class="form-control"
-                                       value="${user.name}" name="name" id="profile_name">
+                                <spring:input class="form-control" id="profile_name" path="name"/>
                             </div>
                             <div class="form-group">
                                 <label for="profile_email">Email</label>
-                                <input type="email" class="form-control"
-                                       value="${user.email}" name="email" id="profile_email">
+                                <spring:input class="form-control" id="profile_email" path="email"/>
                             </div>
                             <div class="form-group">
                                 <label for="profile_password">Password</label>
-                                <input type="text" class="form-control" name="password"
-                                       value="${user.password}" id="profile_password">
+                                <spring:password class="form-control" id="profile_password" path="password"/>
                             </div>
                             <div class="form-group">
                                 <label for="profile_phone">Phone No</label>
-                                <input type="text" value="${user.phone}" id="profile_phone" name="phone" class="form-control">
-                            </div>
-                            <input type="button" class="btn btn-success" id="profile_submit" value="Update Profile">
+                                <spring:input class="form-control" id="profile_phone" path="phone" /></div>
+                            <input type="submit" class="btn btn-success" id="profile_submit" value="Update Profile">
+                            
                         </spring:form>
                     </div>
                 </div>

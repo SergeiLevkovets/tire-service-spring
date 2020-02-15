@@ -1,7 +1,7 @@
 package by.stormnet.levkovets.config;
 
 
-import by.stormnet.levkovets.security.AuthProviderImpl;
+import by.stormnet.levkovets.security.AuthenticationProviderImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private AuthProviderImpl provider;
+    private AuthenticationProviderImpl provider;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -30,7 +30,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/index", "/index.html", "/", "/login", "/registration").anonymous()
+                .antMatchers("/index", "/index.html", "/", "/registration").permitAll()
+                .antMatchers( "/login" ).anonymous()
+                .antMatchers("/404").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and().csrf().disable()
                 .formLogin()
@@ -38,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .usernameParameter("email")
                 .and()
                 .logout()
-                .logoutSuccessUrl("/logout");
+                .logoutSuccessUrl("/index");
     }
 
     @Override

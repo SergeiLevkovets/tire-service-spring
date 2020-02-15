@@ -1,5 +1,6 @@
 package by.stormnet.levkovets.config;
 
+import by.stormnet.levkovets.dto.UserDTO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -7,11 +8,13 @@ import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@Import({DaoConfiguration.class, SecurityConfiguration.class})
+@Import({SecurityConfiguration.class})
 
 @Configuration
 @EnableWebMvc
@@ -28,17 +31,6 @@ public class MvcConfiguration implements WebMvcConfigurer {
         return viewResolver;
     }
 
-   /* @Bean
-    WebMvcConfigurer myWebMvcConfigurer() {
-        return new WebMvcConfigurerAdapter() {
-
-            @Override
-            public void addViewControllers(ViewControllerRegistry registry) {
-                ViewControllerRegistration r = registry.addViewController("/login");
-                r.setViewName("login");
-            }
-        };
-    }*/
 
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

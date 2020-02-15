@@ -50,6 +50,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(UserDTO user) {
         log.info("IN UserServiceImpl save {}", user);
+
         userDAO.save(userMapper.UserDTOToUser(user));
         log.info("IN UserServiceImpl saved", user);
     }
@@ -70,4 +71,5 @@ public class UserServiceImpl implements UserService {
                 .map(userMapper::userToUserDTO)
                 .collect(Collectors.toList());
     }
+
 }

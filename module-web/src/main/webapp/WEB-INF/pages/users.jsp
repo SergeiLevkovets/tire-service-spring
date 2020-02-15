@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page isELIgnored="false" %>
 <%@include file="/WEB-INF/pages/parts/head.jsp" %>
 <body>
@@ -26,7 +26,6 @@
                                     <th>Id</th>
                                     <th>Имя</th>
                                     <th>Почта</th>
-                                    <th>Пароль</th>
                                     <th>Телефон</th>
                                     <th>Роль</th>
                                     <th>Операции</th>
@@ -38,7 +37,6 @@
                                         <td><c:out value="${user.id}"/></td>
                                         <td><c:out value="${user.name}"/></td>
                                         <td><c:out value="${user.email}"/></td>
-                                        <td><c:out value="${user.password}"/></td>
                                         <td><c:out value="${user.phone}"/></td>
                                         <td><c:out value="${user.role}"/></td>
                                         <td>
@@ -62,19 +60,16 @@
                         <spring:form class="form-horizontal panel-body" action="save-user" method="post" modelAttribute="user">
                             <div class="form-group row">
                                 <spring:hidden path="id"/>
+                                <spring:hidden path="password" />
                                 <div class="col-md-3">
                                     <label>Имя</label>
                                     <spring:input path="name" class="form-control" id="name"/>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label>Почта</label>
                                     <spring:input path="email" class="form-control" id="email"/>
                                 </div>
-                                <div class="col-md-2">
-                                    <label>Пароль</label>
-                                    <spring:input path="password" class="form-control" id="password"/>
-                                </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label>Номер телефона</label>
                                     <spring:input path="phone" class="form-control" id="phone"/>
                                 </div>
